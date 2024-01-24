@@ -98,6 +98,11 @@ function saveAsPDF() {
         editableSpans.forEach(span => {
             span.style.color = "#000";
         });
+            setTimeout(() => {
+        editableSpans.forEach(span => {
+            span.style.color = "#F00";
+        });
+    }, 500);
 
         html2canvas(pages[index]).then(canvas => {
             var imgData = canvas.toDataURL('image/png');
