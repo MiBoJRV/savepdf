@@ -39,6 +39,7 @@ button.save {
 }
 .content span[contenteditable=true] {
   color: #F00;
+  cursor: pointer;
 }
 .content span[contenteditable=true]:focus {
   outline: 1px solid #F00;
