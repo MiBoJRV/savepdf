@@ -1,0 +1,215 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Editable Content</title>-->
+<!--    &lt;!&ndash;<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js"></script>-->
+<!--    <script src="js/script.js"></script>&ndash;&gt;-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"-->
+<!--            integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="-->
+<!--            crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+<!--    <script src="js/script.js"></script>-->
+<!--    <link rel="stylesheet" type="text/css" href="styles/styles.css"/>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="content" id="editableContent">-->
+<!--    <div class="page_1">-->
+<!--        <div class="banner">-->
+<!--            <img src="images/a4_1.webp" alt="banner">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="html2pdf__page-break"></div>-->
+<!--    <div class="page_2">-->
+<!--        <div>-->
+<!--            <p>-->
+<!--                George Slipski<br>-->
+<!--                Chief Account Executive<br>-->
+<!--                Hyperledger Foundation<br>-->
+<!--                State of Washington - Department of Financial InstitutionsDivision of Consumer Services<br>-->
+<!--                150 Israel Road, S.W.Tumwater, WA 98501<br>-->
+<!--                DATE: <span id="date" contenteditable="true">6.12.2023</span>-->
+<!--            </p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="html2pdf__page-break"></div>-->
+<!--    <div class="page_3">-->
+<!--        <p>This is some content for the third page.</p>-->
+<!--    </div>-->
+<!--    <div class="html2pdf__page-break"></div>-->
+<!--</div>-->
+<!--<button onclick="saveAsPDF()">Save as PDF</button>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Editable Content</title>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+<!--    <script src="js/script.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="editableContent">-->
+<!--    <img src="images/a4 _1.png" alt="banner">-->
+<!--    <p>-->
+<!--        George Slipski<br>-->
+<!--        Chief Account Executive<br>-->
+<!--        Hyperledger Foundation<br>-->
+<!--        State of Washington - Department of Financial InstitutionsDivision of Consumer Services<br>-->
+<!--        150 Israel Road, S.W.Tumwater, WA 98501<br>-->
+<!--        DATE: <span id="date" contenteditable="true">6.12.2023</span>-->
+<!--    </p>-->
+<!--</div>-->
+
+<!--<button onclick="saveAsPDF()">Save as PDF</button>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Content</title>
+    <!-- Додайте це до вашого <head> -->
+    <script src="js/jspdf.umd.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/script1.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="styles/styles.css"/>
+</head>
+<body>
+<div class="content" id="editableContent">
+    <div class="page page_1">
+        <div class="banner">
+            <img src="images/a4_1.webp" alt="banner" width="100%">
+        </div>
+    </div>
+
+    <div class="page page_2">
+        <div class="page_content-wrap">
+        <div class="page_content">
+            <div class="block_1">
+                <p>George Slipski</p>
+                <p>Chief Account Executive</p>
+                <p>Hyperledger Foundation</p>
+                <p>State of Washington - Department of Financial InstitutionsDivision of Consumer Services</p>
+                <p>150 Israel Road, S.W.Tumwater, WA 98501</p>
+                <p>
+                    DATE: <span id="date" contenteditable="true">6.12.2023</span>
+                </p>
+            </div>
+            <div class="block_2">
+                <p>Suaraez Arturo Torres Atos Battiston </p>
+                <p>
+                    <span contenteditable="true">
+                        40 Hawkins DR Toronto ON M6M 2W6
+                    </span>
+                </p>
+            </div>
+            <div class="block_3">
+                <h2>Subject: Guarantee Letter for Transfer of Recovered Funds </h2>
+            </div>
+            <div class="block_4">
+                <p>Dear <span contenteditable="true">Suaraez Arturo Torres Atos Battiston</span>, </p>
+                <p>
+                    I am writing to you, in my capacity as the Chief Account Executive at Atomic Hyperledger company, to
+                    provide
+                    an official guarantee for the transfer of your recovered funds amounting to
+                    <span contenteditable="true">$52,885.00</span>
+                </p>
+                <p>
+                    We deeply regret any inconvenience or distress caused by the unfortunate incident that led to the
+                    loss of your funds. Rest assured, we have taken immediate and decisive action, resulting in the
+                    successful recovery of the full amount. Please be advised that as the Chief Account Executive, I
+                    personally assume full responsibility for ensuring the secure and timely transfer of your recovered
+                    funds. I understand the significance of these funds to you and the trust you have placed in our
+                    company. I want inform you that we have reached the final stage of the recovery process for your
+                    case. In order to successfully complete the process and initiate the transfer of your recovered
+                    funds, we kindly request your prompt payment of the remaining fee. The outstanding balance for the
+                    final fee is <span contenteditable="true">$2,644.00. </span>
+                    I kindly request that you make the payment within the next 3 working days to avoid any
+                    delays in the recovery process.
+                </p>
+            </div>
+            <div class="block_5">
+                <p>Accepted methods of payment is e-wallet transfer. </p>
+                <p><span contenteditable="true">BTC : 1He4T2akxC3ZW4UM34Y7dno6hMMAqGCXp8</span></p>
+            </div>
+            <div class="block_6">
+            </div>
+            <div class="block_7">
+                <p>
+                    <span contenteditable="true">
+                        www.hyperledger.org
+                    </span>
+                </p>
+            </div>
+        </div>
+        </div>
+        <div class="background">
+            <img src="images/a4_2.png" alt="banner" width="100%">
+        </div>
+    </div>
+
+    <div class="page page_3">
+        <div class="page_content-wrap">
+        <div class="page_content">
+            <div class="block_1">
+                <p>
+                    Atomic Hyperledger company maintains stringent protocols to safeguard our clients' funds and
+                    maintains a§ commitment to the highest ethical standards in financial transactions. Your trust in
+                    our organization is highly valued, and I assure you that our team will diligently execute the
+                    transfer process in compliance with all applicable legal requirements. To expedite the transfer, we
+                    kindly request that you provide us with the necessary banking details, including the account number,
+                    bank name, and any additional information required to facilitate the transaction. Once these details
+                    are received, we will initiate the transfer without delay.
+                </p>
+                <p>
+                    Please rest assured that our team of experienced financial experts will closely oversee and monitor
+                    the entire transfer process, ensuring its accuracy, security, and prompt completion. Our commitment
+                    to maintaining the integrity of your funds remains unwavering, and we will spare no effort to ensure
+                    a seamless and efficient transfer. In the unlikely event of any unforeseen circumstances or issues
+                    arising during the transfer process, I encourage you to contact me directly at
+                    support@atomic-hyperledger.com. I will personally address any concerns or queries promptly and
+                    professionally. Once again, please accept our sincerest apologies for any inconvenience caused. We
+                    are deeply committed to resolving this matter to your satisfaction and appreciate your patience and
+                    understanding throughout this process. Thank you for selecting Atomic Hyperledger Support as your
+                    trusted financial partner. We eagerly anticipate the successful completion of the transfer of your
+                    recovered funds.
+                </p>
+            </div>
+            <div class="block_2">
+                <p>Yours faithfully, </p>
+                <img src="images/sign.png" alt="sign">
+            </div>
+            <div class="block_3">
+                <p>George Slipski </p>
+                <p>Chief Account Executive</p>
+                <p>Hyperledger Foundation</p>
+            </div>
+            <div class="block_4">
+                <p>
+                    <span contenteditable="true">
+                        www.hyperledger.org
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="background">
+            <img src="images/a4_2.png" alt="banner" width="100%">
+        </div>
+        </div>
+    </div>
+
+</div>
+<button class="save" onclick="saveAsPDF()">Save as PDF</button>
+
+</body>
+</html>
