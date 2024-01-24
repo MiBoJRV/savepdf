@@ -1,6 +1,6 @@
 window.jsPDF = window.jspdf.jsPDF;
 
-function saveAsPDF() {
+/*function saveAsPDF() {
     const element = document.getElementById('editableContent');
 
     var doc = new jsPDF();
@@ -26,7 +26,102 @@ function saveAsPDF() {
             span.style.color = "#F00";
         });
     }, 500);
+}*/
+
+// function saveAsPDF() {
+//     const element = document.getElementById('editableContent');
+//     const pages = element.querySelectorAll('.page');
+//
+//     var doc = new jsPDF({
+//         unit: 'mm',
+//         format: 'a4',
+//     });
+//
+//     // Recursive function to capture and add pages sequentially
+//     function addPageToPDF(index) {
+//         if (index >= pages.length) {
+//             // Save PDF when all pages are processed
+//             doc.save('myfile.pdf');
+//             return;
+//         }
+//
+//         html2canvas(pages[index]).then(canvas => {
+//             var imgData = canvas.toDataURL('image/png');
+//             var imgWidth = 210;
+//             var imgHeight = (canvas.height * imgWidth) / canvas.width;
+//
+//             if (index > 0) {
+//                 doc.addPage();
+//             }
+//
+//             doc.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+//
+//             // Recursively call the function for the next page
+//             addPageToPDF(index + 1);
+//         });
+//     }
+//
+//     // Start the process with the first page
+//     addPageToPDF(0);
+//
+//     const editableSpans = document.querySelectorAll('span[contenteditable="true"]');
+//     editableSpans.forEach(span => {
+//         span.style.color = "#000";
+//     });
+//
+//     setTimeout(() => {
+//         editableSpans.forEach(span => {
+//             span.style.color = "#F00";
+//         });
+//     }, 500);
+// }
+
+function saveAsPDF() {
+    const element = document.getElementById('editableContent');
+    const pages = element.querySelectorAll('.page');
+
+    var doc = new jsPDF({
+        unit: 'mm',
+        format: 'a4',
+    });
+
+    // Recursive function to capture and add pages sequentially
+    function addPageToPDF(index) {
+        if (index >= pages.length) {
+            // Save PDF when all pages are processed
+            doc.save('myfile.pdf');
+            return;
+        }
+
+        // Change the color of span elements to #000 before capturing
+        const editableSpans = pages[index].querySelectorAll('span[contenteditable="true"]');
+        editableSpans.forEach(span => {
+            span.style.color = "#000";
+        });
+
+        html2canvas(pages[index]).then(canvas => {
+            var imgData = canvas.toDataURL('image/png');
+            var imgWidth = 210;
+            var imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+            if (index > 0) {
+                doc.addPage();
+            }
+
+            doc.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+
+            // Recursively call the function for the next page
+            addPageToPDF(index + 1);
+        });
+    }
+
+    // Start the process with the first page
+    addPageToPDF(0);
 }
+
+
+
+
 
 
 const editableSpans = document.querySelectorAll('span[contenteditable="true"]');

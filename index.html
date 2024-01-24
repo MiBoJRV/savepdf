@@ -77,7 +77,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editable Content</title>
-    <!-- Додайте це до вашого <head> -->
     <script src="js/jspdf.umd.min.js"></script>
     <script src="js/html2canvas.min.js"></script>
     <script src="js/script1.js"></script>
@@ -86,13 +85,12 @@
 </head>
 <body>
 <div class="content" id="editableContent">
-    <div class="page page_1">
-        <div class="banner">
+    <div class="page page_1" id="page1">
+        <div class="background">
             <img src="images/a4_1.webp" alt="banner" width="100%">
         </div>
     </div>
-
-    <div class="page page_2">
+    <div class="page page_2" id="page2">
         <div class="page_content-wrap">
         <div class="page_content">
             <div class="block_1">
@@ -157,8 +155,7 @@
             <img src="images/a4_2.png" alt="banner" width="100%">
         </div>
     </div>
-
-    <div class="page page_3">
+    <div class="page page_3" id="page3">
         <div class="page_content-wrap">
         <div class="page_content">
             <div class="block_1">

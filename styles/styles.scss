@@ -17,6 +17,21 @@ button.save {
   top: 0;
   left: 50%;
   transform: translate(-30%, 20px);
+
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2px;
+  border: 1px solid #D1D1D1;
+  background: #F3F3F3;
+  width: 240px;
+  height: 47px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 26px auto 0;
+  cursor: pointer;
 }
 
 .content {
@@ -38,6 +53,7 @@ button.save {
   .page {
     margin-bottom: 20px;
     height: 1630px;
+    page-break-before: always;
   }
 
   .page_content-wrap {
