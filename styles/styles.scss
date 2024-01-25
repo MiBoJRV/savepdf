@@ -39,12 +39,12 @@ button.save {
   margin: 0 auto;
   //page-break-inside: avoid;
 
-  span[contenteditable="true"] {
+  span[contenteditable="plaintext-only"] {
     color: #F00;
     cursor: pointer;
   }
 
-  span[contenteditable="true"]:focus {
+  span[contenteditable="plaintext-only"]:focus {
     outline: 1px solid #F00;
     outline-offset: 3px;
   }

@@ -37,11 +37,11 @@ button.save {
   width: 1152px;
   margin: 0 auto;
 }
-.content span[contenteditable=true] {
+.content span[contenteditable=plaintext-only] {
   color: #F00;
   cursor: pointer;
 }
-.content span[contenteditable=true]:focus {
+.content span[contenteditable=plaintext-only]:focus {
   outline: 1px solid #F00;
   outline-offset: 3px;
 }
