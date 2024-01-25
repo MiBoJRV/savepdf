@@ -18,7 +18,7 @@ function saveAsPDF() {
         }
 
         // Change the color of span elements to #000 before capturing
-        const editableSpans = pages[index].querySelectorAll('span[contenteditable="plaintext-only"]');
+        const editableSpans = pages[index].querySelectorAll('span[contenteditable="true"]');
         editableSpans.forEach(span => {
             span.style.color = "#000";
         });
@@ -141,6 +141,44 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// -------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+    let editableSpansTrue = document.querySelectorAll('span[contenteditable="true"]');
+    console.log(editableSpansTrue.length)
+
+    editableSpansTrue.forEach(editableSpan => {
+        editableSpan.addEventListener("keydown", e => {
+            if (e.keyCode == 13) {
+                e.preventDefault();
+                e.stopPropagation();
+                insertTextAtSelection(editableSpan, "\n");
+            }
+        });
+
+        editableSpan.addEventListener("paste", e => {
+            console.log('paste');
+            e.preventDefault();
+            let text = (e.originalEvent || e).clipboardData.getData('text/plain');
+            insertTextAtSelection(editableSpan, text);
+        });
+    });
+
+    function insertTextAtSelection(element, txt) {
+        let sel = window.getSelection();
+        let text = element.textContent;
+        let before = Math.min(sel.focusOffset, sel.anchorOffset);
+        let after = Math.max(sel.focusOffset, sel.anchorOffset);
+        let afterStr = text.substring(after);
+        if (afterStr == "") afterStr = "\n";
+        element.textContent = text.substring(0, before) + txt + afterStr;
+        sel.removeAllRanges();
+        let range = document.createRange();
+        range.setStart(element.childNodes[0], before + txt.length);
+        range.setEnd(element.childNodes[0], before + txt.length);
+        sel.addRange(range);
+    }
+
+});
 
 
 
