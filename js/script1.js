@@ -22,26 +22,29 @@ function saveAsPDF() {
         editableSpans.forEach(span => {
             span.style.color = "#000";
         });
-            setTimeout(() => {
-        editableSpans.forEach(span => {
-            span.style.color = "#F00";
-        });
-    }, 500);
 
-        html2canvas(pages[index]).then(canvas => {
-            var imgData = canvas.toDataURL('image/png');
-            var imgWidth = 210;
-            var imgHeight = (canvas.height * imgWidth) / canvas.width;
+        // Delay to ensure styles are applied before capturing
+        setTimeout(() => {
+            editableSpans.forEach(span => {
+                span.style.color = "#F00";
+            });
 
-            if (index > 0) {
-                doc.addPage();
-            }
+            html2canvas(pages[index], { scale: 2 }) // Increase scale for higher resolution
+                .then(canvas => {
+                    var imgData = canvas.toDataURL('image/jpeg', 1.0); // Use JPEG format with high quality
+                    var imgWidth = 210;
+                    var imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-            doc.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+                    if (index > 0) {
+                        doc.addPage();
+                    }
 
-            // Recursively call the function for the next page
-            addPageToPDF(index + 1);
-        });
+                    doc.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
+
+                    // Recursively call the function for the next page
+                    addPageToPDF(index + 1);
+                });
+        }, 500);
     }
 
     // Start the process with the first page
